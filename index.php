@@ -3,52 +3,144 @@
 <head>
 	<title>Faktura API</title>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <style type="text/css">
+    .row {
+      margin-top: 30px;
+    }
+    p {
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+  <div class="row" style="margin: 30px;">
+    <div class="col-md-10 col-md-offset-2">
+        <h1>faktura-api Wizard</h1>
+      <form action="index.php" method="POST">
+      <!-- BETALNINGSMOTTAGARE !-->
+        <div class="row">
+          <div class="col-md-12">
+            <p>Faktura</p><hr>
+          </div>
+
+          <div class="col">
+            <label>Referens:</label>
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <label>Faktureringsdatum:</label>
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <label>Förfallodatum:</label>
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
         </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
 
-	<div class="row">
-		<div class="col-md-12">
-			Hello world.
-		</div>
-	</div>
+        <div class="row">
+          <div class="col-md-12">
+            <p>Betalningsmottagare</p><hr>
+          </div>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <div class="col">
+            <label> Förnamn och efternamn / Företag:</label>
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+             <label>Adress:</label>
+            <input type="text" class="form-control" placeholder="Adress">
+          </div>
+          <div class="col">
+             <label>Postnummer:</label>
+            <input type="text" class="form-control" placeholder="Postnummer">
+          </div>
+          <div class="col">
+             <label>Stad:</label>
+            <input type="text" class="form-control" placeholder="Stad">
+          </div>
+          <div class="col">
+             <label>Län:</label>
+            <input type="text" class="form-control" placeholder="Län">
+          </div>
+          <div class="col">
+             <label>Land:</label>
+            <input type="text" class="form-control" placeholder="Land">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+             <label>Org. nummer:</label>
+            <input type="text" class="form-control" placeholder="Län">
+          </div>
+        </div>
+      <!--BETALNINGSMOTTAGARE END !-->
+
+        <div class="row">
+          <div class="col">
+            <div style="width: 100%; border: 3px solid #ddd;"></div>
+          </div>
+        </div>
+
+      <!-- FAKTURAMOTTAGARE !-->
+        <div class="row">
+          <div class="col-md-12">
+            <p>Fakturamottagare</p><hr>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label> Förnamn och efternamn / Företag:</label>
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+             <label>Adress:</label>
+            <input type="text" class="form-control" placeholder="Adress">
+          </div>
+          <div class="col">
+             <label>Postnummer:</label>
+            <input type="text" class="form-control" placeholder="Postnummer">
+          </div>
+          <div class="col">
+             <label>Stad:</label>
+            <input type="text" class="form-control" placeholder="Stad">
+          </div>
+          <div class="col">
+             <label>Län:</label>
+            <input type="text" class="form-control" placeholder="Län">
+          </div>
+          <div class="col">
+             <label>Land:</label>
+            <input type="text" class="form-control" placeholder="Land">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+             <label>Org. nummer:</label>
+            <input type="text" class="form-control" placeholder="Län">
+          </div>
+        </div>
+
+
+      <!-- FAKTURAMOTTAGARE END !-->
+
+
+      </form>
+
+    </div>
+  </div>  
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </body>
 </html>
