@@ -179,7 +179,7 @@
 
         <div class="row">
           <div class="col">
-            Total summa exklusive moms: <b>NULL</b>
+            Total summa exklusive moms: <b><span id="exmoms">NULL</span></b>
           </div>
           <div class="col">
             Moms <span id="moms"></span>: <b>NULL</b>
@@ -201,14 +201,66 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
+var product_id = 0;
+
+ 
+
+
   $("#products").change(function(){
     var products = $("#products option:selected").text();
+    $(".product").html("");
+
+            var fdata = 0;
+            var odata = 0;
+
+            var odataC = 0;
+            var fdataC = 0;
+            var tot = 0;
+
+odata = $("#product_"+product_id).val();
       for(var i = 0; i < products; i++) {
-        var product_id = i+1;
-        var products_list = "<div class='row'><div class='col-md-12'><p>Produkt "+ product_id + "</p><hr></div><div class='col'><label>Produkt:</label> <input type='text' name='product_data' class='form-control'></div> <div class='col'><label>Antal:</label><input type='text' name='antal' class='form-control'></div><div class='col'><label>Startavgift:</label><input type='text' name='startavgift' class='form-control'></div><div class='col'><label>Pris:</label><input type='text' name='pris' class='form-control'></div><div class='col'><label>Totalt:</label><input type='text' name='totalt' class='form-control'></div></div>";
+        product_id = i+1;
+        var products_list = "<div class='row'><div class='col-md-12'><p>Produkt "+ product_id + "</p><hr></div><div class='col'><label>Produkt:</label> <input type='text' name='product_data' class='form-control'></div> <div class='col'><label>Antal:</label><input type='text' name='antal' class='form-control'></div><div class='col'><label>Startavgift:</label><input type='text' name='startavgift' class='form-control'></div><div class='col'><label>Pris:</label><input type='text' name='pris' class='form-control'></div><div class='col'><label>Totalt:</label><input type='text' name='totalt' id='product_"+product_id+"' class='form-control'></div></div>";
         $(".product").append(products_list);
+        
+        console.log("div:" +product_id+ " data:" + $("#product_"+product_id).val()); 
+
+           $("#product_"+product_id).keyup(function() {
+             fdata = $(this).val();
+             
+
+             odataC = (odata) ;
+             fdataC = (fdata);
+             tot = (odataC) + (fdataC);
+              
+
+              console.log("Cdiv:" +product_id+ " Cdata:" + tot); 
+               $("#exmoms").html(tot);
+            })
+            .keyup();
+
       }
+
+
+
+
+      var exmoms = 0;
+
+
+ $("input[name=totalt]").each(function(){
+          var exmomsString = $(this).val();
+           exmoms = exmomsString;
+          });
+
+
+
+
+
   });
+
+
+   
+
 
   var moms = "0%";
   $("#moms").html(moms);
@@ -216,6 +268,29 @@ $(document).ready(function(){
     moms = $("#moms_sats option:selected").text();
     $("#moms").html(moms);
   });
+
+  var total_summa = "0";
+  $("#products").change(function(){
+    $("input[name=totalt]").each(function(){
+       $('#exmoms').text($(this).val());
+        total_product = $(this).val();
+        total_summa = total_summa + total_product;
+         //alert(total_summa);
+      });
+    //alert(total_summa);
+  });
+
+var nameValue = "";
+$("#total").change(function(){
+  nameValue = $(this).html();
+  alert($(this).val());
+  alert("Detta är: " + nameValue);
+});
+  
+
+
+
+
 
 
 });
