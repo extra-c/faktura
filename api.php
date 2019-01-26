@@ -2,10 +2,9 @@
 //
 // A very simple PHP example that sends a HTTP POST to a remote site
 //
-
 $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL,"https://www.holden.se/api.php");
+curl_setopt($ch, CURLOPT_URL,"https://www.holden.se/api/api.php");
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
             "system=faktura&postvar2=value2&postvar3=value3");
@@ -22,6 +21,13 @@ $server_output = curl_exec($ch);
 
 curl_close ($ch);
 
-// Further processing ...
-if ($server_output == "OK") { echo "Fungerar"; } else { echo "Fungerar ej"; }
+if($_REQUEST["system"]=="faktura") { $response = 1; } else { $response = 0; }
+
+if($response==1) {
+	// Further processing ...
+	if ($server_output == "OK") { echo "Fungerar"; } else { echo "Fungerar ej"; }
+} else {
+	echo "Ej angiven kommando.";
+}
+
 ?>
